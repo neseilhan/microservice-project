@@ -23,7 +23,7 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 @Transactional
-@Slf4j
+//@Slf4j
 public class OrderService {
 
     private final OrderRepository orderRepository;
@@ -41,7 +41,9 @@ public class OrderService {
                 .toList();
 
         order.setOrderLineItemsList(orderLineItems);
-//
+
+        orderRepository.save(order);
+
 //        List<String> skuCodes = order.getOrderLineItemsList().stream()
 //                .map(OrderLineItems::getSkuCode)
 //                .toList();
